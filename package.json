@@ -16,18 +16,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --config .prettierrc --write",
-      "eslint --fix",
-      "git add"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
