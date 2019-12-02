@@ -2,5 +2,6 @@
   "jsxSingleQuote": true,
   "singleQuote": true,
   "bracketSpacing": true,
-  "printWidth": 80
+  "printWidth": 80,
+  "arrowParens": "always"
 }

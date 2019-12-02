@@ -2,6 +2,8 @@ import React from 'react';
 
 import { createGlobalStyle } from 'styled-components';
 
+import Root from './views/Root/Root';
+
 const GlobalStyle = createGlobalStyle`
   * {
     @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap');
@@ -20,7 +22,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Boiler plate.</h1>
+      <Root />
     </>
   );
 }
