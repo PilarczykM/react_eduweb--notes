@@ -1,5 +1,10 @@
 import React from 'react';
+import UserTemplatePage from '../template/UserPageTemplate';
 
-const Notes = () => <h1>Notes view</h1>;
+const Notes = () => (
+  <UserTemplatePage pageType="note">
+    <h1>Notes View</h1>
+  </UserTemplatePage>
+);
 
 export default Notes;

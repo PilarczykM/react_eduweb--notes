@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ButtonIcon = styled.button`
   width: 67px;
@@ -9,7 +10,15 @@ const ButtonIcon = styled.button`
   background-repeat: no-repeat;
   background-position: 50%, 50%;
   background-size: 40%;
-  background-color: ${({ active }) => (active ? '#fff' : 'transparent')};
+  background-color: transparent;
+
+  &.active {
+    background-color: #fff;
+  }
 `;
+
+ButtonIcon.prototype = {
+  icon: PropTypes.element.isRequired,
+};
 
 export default ButtonIcon;

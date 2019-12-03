@@ -1,5 +1,10 @@
 import React from 'react';
+import UserTemplatePage from '../template/UserPageTemplate';
 
-const Articles = () => <h1>Articles view</h1>;
+const Articles = () => (
+  <UserTemplatePage pageType="article">
+    <h1>Articles View</h1>
+  </UserTemplatePage>
+);
 
 export default Articles;
