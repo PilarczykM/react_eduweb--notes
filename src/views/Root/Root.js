@@ -9,6 +9,7 @@ import ButtonIcon from '../../components/atoms/ButtonIcon/ButtonIcon';
 
 import loopIcon from '../../assets/icons/bulb.svg';
 import searchIcon from '../../assets/icons/pen.svg';
+import Card from '../../components/molecules/Card/Card';
 
 const Root = () => (
   // Theme provider pass props.theme to all childs.
@@ -26,6 +27,8 @@ const Root = () => (
     <br />
     <ButtonIcon icon={loopIcon} />
     <ButtonIcon icon={searchIcon} active />
+    <br />
+    <Card headingTitle="My heading" />
   </ThemeProvider>
 );
 
