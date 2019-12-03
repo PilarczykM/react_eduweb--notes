@@ -28,7 +28,9 @@ const Root = () => (
     <ButtonIcon icon={loopIcon} />
     <ButtonIcon icon={searchIcon} active />
     <br />
-    <Card headingTitle="My heading" />
+    <Card />
+    <Card cardType="twitter" />
+    <Card cardType="article" />
   </ThemeProvider>
 );
 
