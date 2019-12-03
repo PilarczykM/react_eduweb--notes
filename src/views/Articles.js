@@ -1,9 +1,28 @@
 import React from 'react';
 import UserTemplatePage from '../template/UserPageTemplate';
+import Card from '../components/molecules/Card/Card';
 
 const Articles = () => (
   <UserTemplatePage pageType="article">
-    <h1>Articles View</h1>
+    <Card
+      cardType="article"
+      title="My first article"
+      content="Lorem ipsum"
+      createdAt="2 days ago"
+    />
+    <Card
+      cardType="article"
+      title="My first article"
+      content="Lorem ipsum"
+      createdAt="2 days ago"
+      articleUrl="https://www.youtube.com"
+    />
+    <Card
+      cardType="article"
+      title="My first article"
+      content="Lorem ipsum"
+      createdAt="2 days ago"
+    />
   </UserTemplatePage>
 );
 

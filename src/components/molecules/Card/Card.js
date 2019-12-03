@@ -6,7 +6,10 @@ import Heading from '../../atoms/Heading/Heading';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
 import Button from '../../atoms/Button/Button';
 
+import LinkIcon from '../../../assets/icons/link.svg';
+
 const StyledWrapper = styled.div`
+  position: relative;
   min-height: 38rem;
   box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -16,11 +19,13 @@ const StyledWrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
+  background-color: ${({ activeColor, theme }) =>
+    activeColor ? theme[activeColor] : 'white'};
   padding: 20px 15px;
 
-  ${({ flex }) => flex
-    && css`
+  ${({ flex }) =>
+    flex &&
+    css`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -36,28 +41,69 @@ const DateInfo = styled(Paragraph)`
   font-size: ${({ theme }) => theme.fontSize.xs};
 `;
 
-const Card = ({ cardType }) => (
+const StyledAvatar = styled.img`
+  width: 86px;
+  height: 86px;
+  border: 5px solid ${({ theme }) => theme.twitter};
+  border-radius: 50px;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+`;
+
+const StyledLinkButton = styled.a`
+  display: block;
+  width: 47px;
+  height: 47px;
+  border-radius: 50px;
+  background: white url(${LinkIcon}) no-repeat;
+  background-size: 60%;
+  background-position: 50%;
+  position: absolute;
+  right: 25px;
+  top: 50px;
+  transform: translateY(-50%);
+`;
+
+const Card = ({
+  cardType,
+  title,
+  createdAt,
+  content,
+  twitterName,
+  articleUrl,
+}) => (
   <StyledWrapper>
     <InnerWrapper activeColor={cardType}>
-      <Heading>My title</Heading>
-      <DateInfo>3 days</DateInfo>
+      <Heading>{title}</Heading>
+      <DateInfo>{createdAt}</DateInfo>
+      {cardType === 'twitter' &&
+        (twitterName ? (
+          <StyledAvatar src={`https://avatars.io/twitter/${twitterName}`} />
+        ) : null)}
+      {cardType === 'article' &&
+        (articleUrl ? <StyledLinkButton href={articleUrl} /> : null)}
     </InnerWrapper>
     <InnerWrapper flex>
-      <StyledParagraph>
-        lksjfgajfdgagf asgagjhasjf asgdagadf gafdg afh h ag adfh adfh adhh ag
-        shds jad fg ah adh ad
-      </StyledParagraph>
+      <StyledParagraph>{content}</StyledParagraph>
       <Button secondary>Remove</Button>
     </InnerWrapper>
   </StyledWrapper>
 );
 
-Card.prototype = {
+Card.propTypes = {
   cardType: PropTypes.oneOf(['note', 'twitter', 'article']),
+  title: PropTypes.element.isRequired,
+  content: PropTypes.element.isRequired,
+  createdAt: PropTypes.element.isRequired,
+  twitterName: PropTypes.element,
+  articleUrl: PropTypes.element,
 };
 
 Card.defaultProps = {
   cardType: 'note',
+  twitterName: null,
+  articleUrl: null,
 };
 
 export default Card;
