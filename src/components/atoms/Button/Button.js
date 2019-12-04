@@ -7,7 +7,7 @@ const Button = styled.button`
   color: black;
   text-decoration: none;
   padding: 0;
-  background-color: ${({ activeColor, theme }) => theme[activeColor]};
+  background-color: ${({ color, theme }) => theme[color]};
   width: 220px;
   height: 47px;
   border: none;
@@ -17,8 +17,9 @@ const Button = styled.button`
   font-size: 16px;
   text-transform: uppercase;
 
-  ${({ secondary }) => secondary
-    && css`
+  ${({ secondary }) =>
+    secondary &&
+    css`
       background-color: hsl(0, 0%, 90%);
       width: 105px;
       height: 30px;

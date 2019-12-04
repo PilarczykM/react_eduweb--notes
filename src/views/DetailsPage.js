@@ -53,7 +53,7 @@ class DetailsPage extends Component {
 }
 
 DetailsPage.propTypes = {
-  match: PropTypes.string.isRequired,
+  match: PropTypes.oneOfType([PropTypes.object]).isRequired,
 };
 
 export default DetailsPage;

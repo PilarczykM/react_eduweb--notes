@@ -82,7 +82,7 @@ const DetailsTemplate = ({
           src={`https://avatars.io/twitter/${twitterName}`}
         />
       )}
-      <StyledButton as={Link} to={`/${pageType}`} activeColor={pageType}>
+      <StyledButton as={Link} to={`/${pageType}`} color={pageType}>
         save / close
       </StyledButton>
     </StyledWrapper>
