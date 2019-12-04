@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
 import Heading from '../../atoms/Heading/Heading';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
@@ -19,13 +20,11 @@ const StyledWrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
-  background-color: ${({ activeColor, theme }) =>
-    activeColor ? theme[activeColor] : 'white'};
+  background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
   padding: 20px 15px;
 
-  ${({ flex }) =>
-    flex &&
-    css`
+  ${({ flex }) => flex
+    && css`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -66,42 +65,50 @@ const StyledLinkButton = styled.a`
 `;
 
 const Card = ({
+  id,
   cardType,
   title,
   createdAt,
   content,
   twitterName,
   articleUrl,
-}) => (
-  <StyledWrapper>
-    <InnerWrapper activeColor={cardType}>
-      <Heading>{title}</Heading>
-      <DateInfo>{createdAt}</DateInfo>
-      {cardType === 'twitter' &&
-        (twitterName ? (
-          <StyledAvatar src={`https://avatars.io/twitter/${twitterName}`} />
-        ) : null)}
-      {cardType === 'article' &&
-        (articleUrl ? <StyledLinkButton href={articleUrl} /> : null)}
-    </InnerWrapper>
-    <InnerWrapper flex>
-      <StyledParagraph>{content}</StyledParagraph>
-      <Button secondary>Remove</Button>
-    </InnerWrapper>
-  </StyledWrapper>
-);
+}) => {
+  const [redirect, setRedirect] = useState(false);
+
+  if (redirect) return <Redirect to={`/${cardType}/${id}`} />;
+
+  return (
+    <StyledWrapper onClick={() => setRedirect(true)}>
+      <InnerWrapper activeColor={cardType}>
+        <Heading>{title}</Heading>
+        <DateInfo>{createdAt}</DateInfo>
+        {cardType === 'twitters'
+          && (twitterName ? (
+            <StyledAvatar src={`https://avatars.io/twitter/${twitterName}`} />
+          ) : null)}
+        {cardType === 'articles'
+          && (articleUrl ? <StyledLinkButton href={articleUrl} /> : null)}
+      </InnerWrapper>
+      <InnerWrapper flex>
+        <StyledParagraph>{content}</StyledParagraph>
+        <Button secondary>Remove</Button>
+      </InnerWrapper>
+    </StyledWrapper>
+  );
+};
 
 Card.propTypes = {
-  cardType: PropTypes.oneOf(['note', 'twitter', 'article']),
-  title: PropTypes.element.isRequired,
-  content: PropTypes.element.isRequired,
-  createdAt: PropTypes.element.isRequired,
-  twitterName: PropTypes.element,
-  articleUrl: PropTypes.element,
+  id: PropTypes.string.isRequired,
+  cardType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  createdAt: PropTypes.string.isRequired,
+  twitterName: PropTypes.string,
+  articleUrl: PropTypes.string,
 };
 
 Card.defaultProps = {
-  cardType: 'note',
+  cardType: 'notes',
   twitterName: null,
   articleUrl: null,
 };

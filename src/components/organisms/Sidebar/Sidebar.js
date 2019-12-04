@@ -15,8 +15,7 @@ import logoutIcon from '../../../assets/icons/logout.svg';
 const StyledWrapper = styled.div`
   height: 100vh;
   width: 120px;
-  background-color: ${({ activeColor, theme }) =>
-    activeColor ? theme[activeColor] : theme.note};
+  background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : theme.note)};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +50,7 @@ const Sidebar = ({ pageType }) => (
       <ButtonIcon
         exact
         as={NavLink}
-        to="/"
+        to="/notes"
         icon={bulbIcon}
         activeclass="active"
       />
@@ -73,11 +72,11 @@ const Sidebar = ({ pageType }) => (
 );
 
 Sidebar.propTypes = {
-  pageType: PropTypes.oneOf(['note', 'article', 'twitter']),
+  pageType: PropTypes.oneOf(['notes', 'articles', 'twitters']),
 };
 
 Sidebar.defaultProps = {
-  pageType: 'note',
+  pageType: 'notes',
 };
 
 export default Sidebar;

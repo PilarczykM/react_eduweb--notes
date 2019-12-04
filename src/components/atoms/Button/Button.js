@@ -9,10 +9,10 @@ const Button = styled.button`
   text-transform: uppercase;
   font-weight: 500;
   font-size: 16px;
+  cursor: pointer;
 
-  ${({ secondary }) =>
-    secondary &&
-    css`
+  ${({ secondary }) => secondary
+    && css`
       background-color: ${({ theme }) => theme.grey300};
       width: 120px;
       height: 32px;
