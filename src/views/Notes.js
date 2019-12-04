@@ -1,35 +1,51 @@
 import React from 'react';
-import UserTemplatePage from '../template/UserPageTemplate';
-import GridViewTemplate from '../template/GridViewTemplate';
-
+import GridTemplate from '../template/GridViewTemplate';
 import Card from '../components/molecules/Card/Card';
 
+const notes = [
+  {
+    id: 1,
+    title: 'Wake me up when Vue ends',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '1 day',
+  },
+  {
+    id: 2,
+    title: 'Como es An Gular?',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '1 day',
+  },
+  {
+    id: 3,
+    title: 'Du bist Reactish',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '5 days',
+  },
+  {
+    id: 4,
+    title: 'Reactuj się kto moze!',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '10 days',
+  },
+];
+
 const Notes = () => (
-  <UserTemplatePage pageType="notes">
-    <GridViewTemplate pageType="notes">
+  <GridTemplate pageType="notes">
+    {notes.map(({ title, content, created, id }) => (
       <Card
-        id="1"
+        id={id}
         cardType="notes"
-        title="My first title"
-        content="Hi, this is my content"
-        createdAt="3 days ago"
+        title={title}
+        content={content}
+        created={created}
+        key={id}
       />
-      <Card
-        id="1"
-        cardType="notes"
-        title="My first title"
-        content="Hi, this is my content"
-        createdAt="3 days ago"
-      />
-      <Card
-        id="1"
-        cardType="notes"
-        title="My first title"
-        content="Hi, this is my content"
-        createdAt="3 days ago"
-      />
-    </GridViewTemplate>
-  </UserTemplatePage>
+    ))}
+  </GridTemplate>
 );
 
 export default Notes;

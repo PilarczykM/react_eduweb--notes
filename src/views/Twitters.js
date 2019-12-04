@@ -1,35 +1,56 @@
 import React from 'react';
-import UserTemplatePage from '../template/UserPageTemplate';
+import GridTemplate from '../template/GridViewTemplate';
 import Card from '../components/molecules/Card/Card';
-import GridViewTemplate from '../template/GridViewTemplate';
+
+const twitters = [
+  {
+    id: 1,
+    title: 'Hello Roman',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '1 day',
+    twitterName: 'hello_roman',
+  },
+  {
+    id: 2,
+    title: 'Redux guy',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '1 day',
+    twitterName: 'dan_abramov',
+  },
+  {
+    id: 3,
+    title: 'React router stuff',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '5 days',
+    twitterName: 'mjackson',
+  },
+  {
+    id: 4,
+    title: 'Super animacje!',
+    content:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+    created: '10 days',
+    twitterName: 'sarah_edo',
+  },
+];
 
 const Twitters = () => (
-  <UserTemplatePage pageType="twitters">
-    <GridViewTemplate pageType="twitters">
+  <GridTemplate pageType="twitters">
+    {twitters.map(({ title, content, twitterName, created, id }) => (
       <Card
-        id="1"
+        id={id}
         cardType="twitters"
-        title="My first title"
-        content="Hi, this is my content"
-        createdAt="3 days ago"
+        title={title}
+        content={content}
+        twitterName={twitterName}
+        created={created}
+        key={id}
       />
-      <Card
-        id="1"
-        cardType="twitters"
-        title="My first title"
-        content="Hi, this is my content"
-        createdAt="3 days ago"
-        twitterName="hello_roman"
-      />
-      <Card
-        id="1"
-        cardType="twitters"
-        title="My first title"
-        content="Hi, this is my content"
-        createdAt="3 days ago"
-      />
-    </GridViewTemplate>
-  </UserTemplatePage>
+    ))}
+  </GridTemplate>
 );
 
 export default Twitters;

@@ -1,32 +1,21 @@
-/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
 import Sidebar from '../components/organisms/Sidebar/Sidebar';
 
-const StyledSidebar = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
-
-const UserTemplatePage = ({ children, pageType }) => (
+const UserPageTemplate = ({ children, pageType }) => (
   <>
-    <StyledSidebar>
-      <Sidebar pageType={pageType} />
-    </StyledSidebar>
+    <Sidebar pageType={pageType} />
     {children}
   </>
 );
 
-UserTemplatePage.propTypes = {
-  children: PropTypes.node.isRequired,
-  pageType: PropTypes.oneOf(['notes', 'articles', 'twitters']),
+UserPageTemplate.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired,
+  pageType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
 };
 
-UserTemplatePage.defaultProps = {
+UserPageTemplate.defaultProps = {
   pageType: 'notes',
 };
 
-export default UserTemplatePage;
+export default UserPageTemplate;

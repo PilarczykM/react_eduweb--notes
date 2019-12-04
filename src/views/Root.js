@@ -6,13 +6,13 @@ import {
   Redirect,
 } from 'react-router-dom';
 
-import MainTemplate from '../../template/MainTemplate';
-import Notes from '../Notes';
-import Articles from '../Articles';
-import Twitters from '../Twitters';
-import DetailsPage from '../../template/DetailsPage';
+import MainTemplate from '../template/MainTemplate';
+import Notes from './Notes';
+import Articles from './Articles';
+import Twitters from './Twitters';
+import DetailsPage from './DetailsPage';
 
-import routes from '../../routes/index';
+import routes from '../routes/index';
 
 const Root = () => (
   // Theme provider pass props.theme to all childs.

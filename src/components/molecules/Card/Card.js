@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { Redirect } from 'react-router-dom';
@@ -10,18 +10,23 @@ import Button from '../../atoms/Button/Button';
 import LinkIcon from '../../../assets/icons/link.svg';
 
 const StyledWrapper = styled.div`
-  position: relative;
-  min-height: 38rem;
-  box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.2);
+  min-height: 380px;
+  box-shadow: 0 10px 30px -10px hsla(0, 0%, 0%, 0.1);
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
   display: grid;
   grid-template-rows: 0.25fr 1fr;
 `;
 
 const InnerWrapper = styled.div`
+  position: relative;
+  padding: 17px 30px;
   background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
-  padding: 20px 15px;
+
+  :first-of-type {
+    z-index: 9999;
+  }
 
   ${({ flex }) => flex
     && css`
@@ -31,19 +36,20 @@ const InnerWrapper = styled.div`
     `}
 `;
 
-const StyledParagraph = styled(Paragraph)`
-  margin: 20px 0;
-`;
-
 const DateInfo = styled(Paragraph)`
+  margin: 0 0 5px;
   font-weight: ${({ theme }) => theme.bold};
   font-size: ${({ theme }) => theme.fontSize.xs};
+`;
+
+const StyledHeading = styled(Heading)`
+  margin: 5px 0 0;
 `;
 
 const StyledAvatar = styled.img`
   width: 86px;
   height: 86px;
-  border: 5px solid ${({ theme }) => theme.twitter};
+  border: 5px solid ${({ theme }) => theme.twitters};
   border-radius: 50px;
   position: absolute;
   right: 25px;
@@ -60,51 +66,60 @@ const StyledLinkButton = styled.a`
   background-position: 50%;
   position: absolute;
   right: 25px;
-  top: 50px;
+  top: 50%;
   transform: translateY(-50%);
 `;
 
-const Card = ({
-  id,
-  cardType,
-  title,
-  createdAt,
-  content,
-  twitterName,
-  articleUrl,
-}) => {
-  const [redirect, setRedirect] = useState(false);
+class Card extends Component {
+  // eslint-disable-next-line react/state-in-constructor
+  state = {
+    redirect: false,
+  };
 
-  if (redirect) return <Redirect to={`/${cardType}/${id}`} />;
+  handleCardClick = () => this.setState({ redirect: true });
 
-  return (
-    <StyledWrapper onClick={() => setRedirect(true)}>
-      <InnerWrapper activeColor={cardType}>
-        <Heading>{title}</Heading>
-        <DateInfo>{createdAt}</DateInfo>
-        {cardType === 'twitters'
-          && (twitterName ? (
+  render() {
+    const {
+      id,
+      cardType,
+      title,
+      created,
+      twitterName,
+      articleUrl,
+      content,
+    } = this.props;
+    const { redirect } = this.state;
+
+    if (redirect) {
+      return <Redirect to={`${cardType}/details/${id}`} />;
+    }
+    return (
+      <StyledWrapper onClick={this.handleCardClick}>
+        <InnerWrapper activeColor={cardType}>
+          <StyledHeading>{title}</StyledHeading>
+          <DateInfo>{created}</DateInfo>
+          {cardType === 'twitters' && (
             <StyledAvatar src={`https://avatars.io/twitter/${twitterName}`} />
-          ) : null)}
-        {cardType === 'articles'
-          && (articleUrl ? <StyledLinkButton href={articleUrl} /> : null)}
-      </InnerWrapper>
-      <InnerWrapper flex>
-        <StyledParagraph>{content}</StyledParagraph>
-        <Button secondary>Remove</Button>
-      </InnerWrapper>
-    </StyledWrapper>
-  );
-};
+          )}
+          {cardType === 'articles' && <StyledLinkButton href={articleUrl} />}
+        </InnerWrapper>
+        <InnerWrapper flex>
+          <Paragraph>{content}</Paragraph>
+          <Button secondary>REMOVE</Button>
+        </InnerWrapper>
+      </StyledWrapper>
+    );
+  }
+}
 
 Card.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   cardType: PropTypes.oneOf(['notes', 'twitters', 'articles']),
   title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-  createdAt: PropTypes.string.isRequired,
+  created: PropTypes.string.isRequired,
   twitterName: PropTypes.string,
   articleUrl: PropTypes.string,
+  content: PropTypes.string.isRequired,
 };
 
 Card.defaultProps = {
