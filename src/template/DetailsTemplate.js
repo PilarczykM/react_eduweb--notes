@@ -8,7 +8,7 @@ import Paragraph from '../components/atoms/Paragraph/Paragraph';
 import Button from '../components/atoms/Button/Button';
 
 const StyledWrapper = styled.div`
-  padding: 25px 150px 25px 170px;
+  padding: 0 150px 25px 200px;
   max-width: 50vw;
   position: relative;
 

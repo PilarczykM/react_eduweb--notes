@@ -7,7 +7,7 @@ import Heading from '../components/atoms/Heading/Heading';
 import Paragraph from '../components/atoms/Paragraph/Paragraph';
 
 const StyledWrapper = styled.div`
-  padding: 25px 150px 25px 170px;
+  padding: 0 150px 25px 200px;
 `;
 
 const StyledGrid = styled.div`

@@ -18,8 +18,8 @@ import routes from '../routes/index';
 
 const Root = () => (
   <Provider store={store}>
-    <MainTemplate>
-      <Router>
+    <Router>
+      <MainTemplate>
         <Switch>
           <Route
             exact
@@ -33,8 +33,8 @@ const Root = () => (
           <Route exact path={routes.twitters} component={Twitters} />
           <Route path={routes.twitter} component={DetailsPage} />
         </Switch>
-      </Router>
-    </MainTemplate>
+      </MainTemplate>
+    </Router>
   </Provider>
 );
 
