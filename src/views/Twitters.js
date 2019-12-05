@@ -7,7 +7,9 @@ import Card from '../components/molecules/Card/Card';
 
 const Twitters = ({ twitters }) => (
   <GridTemplate pageType="twitters">
-    {twitters.map(({ title, content, twitterName, created, id }) => (
+    {twitters.map(({
+ title, content, twitterName, created, id 
+}) => (
       <Card
         id={id}
         title={title}
@@ -23,7 +25,7 @@ const Twitters = ({ twitters }) => (
 Twitters.propTypes = {
   twitters: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,

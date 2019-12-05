@@ -70,8 +70,7 @@ class GridTemplate extends React.Component {
     };
   }
 
-  toggleNewItemBar = () =>
-    this.setState((prevState) => ({
+  toggleNewItemBar = () => this.setState((prevState) => ({
       isNewItemBarVisible: !prevState.isNewItemBarVisible,
     }));
 
@@ -97,7 +96,10 @@ class GridTemplate extends React.Component {
           icon={plusIcon}
           onClick={this.toggleNewItemBar}
         />
-        <NewItemBar isVisible={isNewItemBarVisible} />
+        <NewItemBar
+          handleClode={this.toggleNewItemBar}
+          isVisible={isNewItemBarVisible}
+        />
       </UserPageTemplate>
     );
   }

@@ -7,8 +7,7 @@ const removeItem = (itemType, id) => ({
 });
 
 const addItem = (itemType, itemContent) => {
-  const getId = () =>
-    `_${Math.random()
+  const getId = () => `_${Math.random()
       .toString(36)
       .substr(2, 9)}`;
 
@@ -18,6 +17,7 @@ const addItem = (itemType, itemContent) => {
       itemType,
       item: {
         id: getId(),
+        created: new Date().toISOString(),
         ...itemContent,
       },
     },

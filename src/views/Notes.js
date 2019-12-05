@@ -22,7 +22,7 @@ const Notes = ({ notes }) => (
 Notes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,
