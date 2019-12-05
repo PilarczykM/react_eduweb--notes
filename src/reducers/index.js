@@ -16,6 +16,38 @@ const initialState = {
       articleUrl: 'https://youtube.com/helloroman',
       created: '1 day',
     },
+    {
+      id: 3,
+      title: 'Wish you React',
+      content:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+      articleUrl: 'https://youtube.com/helloroman',
+      created: '1 day',
+    },
+    {
+      id: 4,
+      title: 'Wish you React',
+      content:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+      articleUrl: 'https://youtube.com/helloroman',
+      created: '1 day',
+    },
+    {
+      id: 5,
+      title: 'Wish you React',
+      content:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+      articleUrl: 'https://youtube.com/helloroman',
+      created: '1 day',
+    },
+    {
+      id: 6,
+      title: 'Wish you React',
+      content:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, tempora quibusdam natus modi tempore esse adipisci, dolore odit animi',
+      articleUrl: 'https://youtube.com/helloroman',
+      created: '1 day',
+    },
   ],
   notes: [
     {

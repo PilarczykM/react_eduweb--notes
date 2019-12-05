@@ -26,14 +26,16 @@ const StyledWrapper = styled.div`
 const InnerWrapper = styled.div`
   position: relative;
   padding: 17px 30px;
-  background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : 'white')};
+  background-color: ${({ activeColor, theme }) =>
+    activeColor ? theme[activeColor] : 'white'};
 
   :first-of-type {
-    z-index: 9999;
+    z-index: 1;
   }
 
-  ${({ flex }) => flex
-    && css`
+  ${({ flex }) =>
+    flex &&
+    css`
       display: flex;
       flex-direction: column;
       justify-content: space-between;

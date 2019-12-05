@@ -6,13 +6,14 @@ const Input = styled.input`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.regular};
   background-color: ${({ theme }) => theme.grey100};
-  border: none;
-  border-radius: 50px;
+  border: ${({ theme, borderColor }) =>
+    borderColor ? `1px solid ${theme[borderColor]}` : 'none'};
+  border-radius: 15px;
 
   ::placeholder {
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: ${({ theme }) => theme.grey300};
+    color: rgba(0, 0, 0, 0.6);
   }
 
   /* If search props - adding additional icon and styles. */
