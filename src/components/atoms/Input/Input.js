@@ -6,20 +6,18 @@ const Input = styled.input`
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.regular};
   background-color: ${({ theme }) => theme.grey100};
-  border: ${({ theme, borderColor }) =>
-    borderColor ? `1px solid ${theme[borderColor]}` : 'none'};
+  border: ${({ theme, borderColor }) => (borderColor ? `1px solid ${theme[borderColor]}` : 'none')};
   border-radius: 15px;
 
   ::placeholder {
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(0, 0, 0, 0.5);
   }
 
   /* If search props - adding additional icon and styles. */
-  ${({ search }) =>
-    search &&
-    css`
+  ${({ search }) => search
+    && css`
       padding: 10px 20px 10px 40px;
       font-size: ${({ theme }) => theme.fontSize.xs};
       background-image: url(${magnifireIcon});

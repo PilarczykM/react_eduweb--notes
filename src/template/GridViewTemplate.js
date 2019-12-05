@@ -58,25 +58,50 @@ const StyledPlusButton = styled(ButtonIcon)`
   background-size: 35%;
   background-color: ${({ theme, bgColor }) => theme[bgColor]};
   border-radius: 50px;
+  z-index: 10;
+  transform: rotate(${({ isVisible }) => (isVisible ? '45deg' : '0deg')});
 `;
 
-const GridTemplate = ({ children, pageContext }) => (
-  <UserPageTemplate>
-    <StyledWrapper>
-      <StyledPageHeader>
-        <Input search placeholder="Search" />
-        <StyledHeading big as="h1">
-          {pageContext}
-        </StyledHeading>
-        <StyledParagraph>{`6 ${pageContext}`}</StyledParagraph>
-      </StyledPageHeader>
-      <StyledGrid>{children}</StyledGrid>
-    </StyledWrapper>
-    <StyledPlusButton bgColor={pageContext} icon={plusIcon} />
-    <NewItemBar />
-  </UserPageTemplate>
-);
+class GridTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isNewItemBarVisible: false,
+    };
+  }
 
+  toggleNewItemBar = () =>
+    this.setState((prevState) => ({
+      isNewItemBarVisible: !prevState.isNewItemBarVisible,
+    }));
+
+  render() {
+    const { pageContext, children } = this.props;
+    const { isNewItemBarVisible } = this.state;
+
+    return (
+      <UserPageTemplate>
+        <StyledWrapper>
+          <StyledPageHeader>
+            <Input search placeholder="Search" />
+            <StyledHeading big as="h1">
+              {pageContext}
+            </StyledHeading>
+            <StyledParagraph>{`6 ${pageContext}`}</StyledParagraph>
+          </StyledPageHeader>
+          <StyledGrid>{children}</StyledGrid>
+        </StyledWrapper>
+        <StyledPlusButton
+          isVisible={isNewItemBarVisible}
+          bgColor={pageContext}
+          icon={plusIcon}
+          onClick={this.toggleNewItemBar}
+        />
+        <NewItemBar isVisible={isNewItemBarVisible} />
+      </UserPageTemplate>
+    );
+  }
+}
 GridTemplate.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
   pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']),
