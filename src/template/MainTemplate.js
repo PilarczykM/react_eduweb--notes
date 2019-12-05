@@ -1,4 +1,4 @@
-import React, { Component, useContext } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
@@ -28,7 +28,9 @@ class MainTemplate extends Component {
       location: { pathname },
     } = this.props;
 
-    const [currentPage] = pageTypes.filter((pageType) => pathname.includes(pageType),);
+    const [currentPage] = pageTypes.filter((pageType) =>
+      pathname.includes(pageType),
+    );
 
     if (prevState.pageType !== currentPage) {
       this.setState({ pageType: currentPage });

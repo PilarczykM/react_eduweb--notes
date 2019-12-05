@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import UserPageTemplate from './UserPageTemplate';
+import withContext from '../hoc/withContext';
+
 import Heading from '../components/atoms/Heading/Heading';
 import Paragraph from '../components/atoms/Paragraph/Paragraph';
 import Button from '../components/atoms/Button/Button';
@@ -57,14 +60,14 @@ const StyledButton = styled(Button)`
 `;
 
 const DetailsTemplate = ({
-  pageType,
   title,
   created,
   content,
   articleUrl,
   twitterName,
+  pageContext,
 }) => (
-  <UserPageTemplate pageType={pageType}>
+  <UserPageTemplate>
     <StyledWrapper>
       <StyledPageHeader>
         <StyledHeading big as="h1">
@@ -73,16 +76,16 @@ const DetailsTemplate = ({
         <StyledParagraph>{created}</StyledParagraph>
       </StyledPageHeader>
       <Paragraph>{content}</Paragraph>
-      {pageType === 'articles' && (
+      {pageContext === 'articles' && (
         <StyledLink href={articleUrl}>Open article</StyledLink>
       )}
-      {pageType === 'twitters' && (
+      {pageContext === 'twitters' && (
         <StyledImage
           alt={title}
           src={`https://avatars.io/twitter/${twitterName}`}
         />
       )}
-      <StyledButton as={Link} to={`/${pageType}`} color={pageType}>
+      <StyledButton as={Link} to={`/${pageContext}`} color={pageContext}>
         save / close
       </StyledButton>
     </StyledWrapper>
@@ -90,7 +93,7 @@ const DetailsTemplate = ({
 );
 
 DetailsTemplate.propTypes = {
-  pageType: PropTypes.string.isRequired,
+  pageContext: PropTypes.string.isRequired,
   title: PropTypes.string,
   created: PropTypes.string,
   content: PropTypes.string,
@@ -106,4 +109,4 @@ DetailsTemplate.defaultProps = {
   twitterName: '',
 };
 
-export default DetailsTemplate;
+export default withContext(DetailsTemplate);
