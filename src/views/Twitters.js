@@ -10,7 +10,6 @@ const Twitters = ({ twitters }) => (
     {twitters.map(({ title, content, twitterName, created, id }) => (
       <Card
         id={id}
-        cardType="twitters"
         title={title}
         content={content}
         twitterName={twitterName}
@@ -25,7 +24,6 @@ Twitters.propTypes = {
   twitters: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      cardType: PropTypes.string,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,

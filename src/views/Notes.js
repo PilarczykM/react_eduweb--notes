@@ -10,7 +10,6 @@ const Notes = ({ notes }) => (
     {notes.map(({ title, content, created, id }) => (
       <Card
         id={id}
-        cardType="notes"
         title={title}
         content={content}
         created={created}
@@ -24,7 +23,6 @@ Notes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      cardType: PropTypes.string,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       created: PropTypes.string.isRequired,

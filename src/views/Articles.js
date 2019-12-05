@@ -10,7 +10,6 @@ const Articles = ({ articles }) => (
     {articles.map(({ title, content, articleUrl, created, id }) => (
       <Card
         id={id}
-        cardType="articles"
         title={title}
         content={content}
         articleUrl={articleUrl}
@@ -25,7 +24,6 @@ Articles.propTypes = {
   articles: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      cardType: PropTypes.string,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       articleUrl: PropTypes.string,
