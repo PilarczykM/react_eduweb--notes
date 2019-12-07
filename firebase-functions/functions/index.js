@@ -6,13 +6,15 @@ const {
   deleteItem,
   getItem,
   getAllItems,
+  getAllItemsOfType,
 } = require('./handlers/items');
 
 // * === Items routes === *
 // ========================
-app.post('/items', addItem);
+app.get('/items/type/', getAllItemsOfType);
 app.get('/items/:itemId', getItem);
 app.delete('/items/:itemId', deleteItem);
+app.post('/items', addItem);
 app.get('/items', getAllItems);
 
 // * === Export main api handler === *

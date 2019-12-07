@@ -20,6 +20,40 @@ exports.getAllItems = (req, res) => {
     .catch((err) => res.status(500).json({ error: err }));
 };
 
+exports.getAllItemsOfType = (req, res) => {
+  const { cardType } = req.body;
+
+  if (cardType === undefined) {
+    return res.status(400).json({ cardType: 'Can not be undefined!' });
+  }
+
+  if (cardType.trim() === '') {
+    return res.status(400).json({ cardType: 'Can not be empty.' });
+  }
+
+  db.collection('items')
+    .where('cardType', '==', cardType)
+    .get()
+    .then((data) => {
+      const itemsOfType = [];
+      data.forEach((doc) =>
+        itemsOfType.push({
+          id: doc.id,
+          ...doc.data(),
+        }),
+      );
+
+      if (itemsOfType.length === 0) {
+        res
+          .status(404)
+          .json({ message: `Items of type ${cardType} not found.` });
+      }
+
+      res.status(200).json(itemsOfType);
+    })
+    .catch((err) => res.status(500).json({ error: err }));
+};
+
 exports.getItem = (req, res) => {
   const document = db.doc(`/items/${req.params.itemId}`);
 
