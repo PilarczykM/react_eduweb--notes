@@ -1,10 +1,16 @@
 const app = require('express')();
 const functions = require('firebase-functions');
 
-const { deleteItem, getItem, getAllItems } = require('./handlers/items');
+const {
+  addItem,
+  deleteItem,
+  getItem,
+  getAllItems,
+} = require('./handlers/items');
 
 // * === Items routes === *
 // ========================
+app.post('/items', addItem);
 app.get('/items/:itemId', getItem);
 app.delete('/items/:itemId', deleteItem);
 app.get('/items', getAllItems);

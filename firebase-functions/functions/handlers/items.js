@@ -45,3 +45,32 @@ exports.deleteItem = (req, res) => {
     })
     .catch((err) => res.status(500).json({ error: err }));
 };
+
+exports.addItem = (req, res) => {
+  const { title, content, cardType } = req.body;
+  if (title === undefined || content === undefined || cardType === undefined) {
+    return res.status(400).json({ body: 'Can not be undefined!' });
+  }
+
+  if (title.trim() === '' || content.trim() === '' || cardType.trim() === '') {
+    return res.status(400).json({ body: 'Can not be empty.' });
+  }
+
+  const newItem = {
+    cardType,
+    title,
+    content,
+    createdAt: new Date().toISOString(),
+  };
+
+  db.collection('items')
+    .add(newItem)
+    .then((ref) => {
+      const newItemRef = {
+        id: ref.id,
+        ...newItem,
+      };
+      return res.status(201).json(newItemRef);
+    })
+    .catch((err) => res.status(500).json({ error: err }));
+};
