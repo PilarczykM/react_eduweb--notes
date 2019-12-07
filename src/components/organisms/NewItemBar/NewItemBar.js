@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
@@ -51,9 +51,7 @@ const StyledHeader = styled(Heading)`
   margin-bottom: 50px;
 `;
 
-const NewItemBar = ({
- pageContext, isVisible, addItem, handleClode 
-}) => (
+const NewItemBar = ({ pageContext, isVisible, addItem, handleClode }) => (
   <StyledWrapper activeColor={pageContext} isVisible={isVisible}>
     <StyledInnerWrapper>
       <StyledHeader>{`Add item to ${pageContext}`}</StyledHeader>
@@ -149,6 +147,7 @@ const NewItemBar = ({
 NewItemBar.proptype = {
   pageContext: PropTypes.element.isRequired,
   isVisible: PropTypes.bool.isRequired,
+  handleClode: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
