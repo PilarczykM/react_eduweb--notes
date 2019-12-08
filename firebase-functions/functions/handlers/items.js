@@ -44,12 +44,12 @@ exports.getAllItemsOfType = (req, res) => {
       );
 
       if (itemsOfType.length === 0) {
-        res
+        return res
           .status(404)
           .json({ message: `Items of type ${cardType} not found.` });
       }
 
-      res.status(200).json(itemsOfType);
+      return res.status(200).json(itemsOfType);
     })
     .catch((err) => res.status(500).json({ error: err }));
 };
