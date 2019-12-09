@@ -9,6 +9,8 @@ const {
   getAllItemsOfType,
 } = require('./handlers/items');
 
+const { login, signup } = require('./handlers/user');
+
 // * === Items routes === *
 // ========================
 app.get('/items/type/', getAllItemsOfType);
@@ -16,6 +18,11 @@ app.get('/items/:itemId', getItem);
 app.delete('/items/:itemId', deleteItem);
 app.post('/items', addItem);
 app.get('/items', getAllItems);
+
+// * === User routes === *
+// =======================
+app.post('/signup', signup);
+app.post('/login', login);
 
 // * === Export main api handler === *
 // ===================================
