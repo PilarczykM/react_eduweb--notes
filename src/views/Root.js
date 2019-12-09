@@ -9,10 +9,13 @@ import { Provider } from 'react-redux';
 import store from '../store/index';
 
 import MainTemplate from '../template/MainTemplate';
-import Notes from './Notes';
+
 import Articles from './Articles';
-import Twitters from './Twitters';
 import DetailsPage from './DetailsPage';
+import Notes from './Notes';
+import LoginPage from './LoginPage';
+import RegisterPage from './RegisterPage';
+import Twitters from './Twitters';
 
 import routes from '../routes/index';
 
@@ -26,6 +29,8 @@ const Root = () => (
             path={routes.home}
             component={() => <Redirect to="/notes" />}
           />
+          <Route exact path={routes.login} component={LoginPage} />
+          <Route exact path={routes.register} component={RegisterPage} />
           <Route exact path={routes.notes} component={Notes} />
           <Route path={routes.note} component={DetailsPage} />
           <Route exact path={routes.articles} component={Articles} />

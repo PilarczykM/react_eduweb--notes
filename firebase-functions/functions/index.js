@@ -1,5 +1,6 @@
 const app = require('express')();
 const functions = require('firebase-functions');
+const cors = require('cors');
 
 const {
   addItem,
@@ -10,6 +11,8 @@ const {
 } = require('./handlers/items');
 
 const { login, signup } = require('./handlers/user');
+
+app.use(cors());
 
 // * === Items routes === *
 // ========================

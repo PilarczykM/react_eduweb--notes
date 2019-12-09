@@ -1,3 +1,5 @@
+import { ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS } from '../actions';
+
 const initialState = {
   articles: [
     {
@@ -87,14 +89,24 @@ const initialState = {
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case 'REMOVE_ITEM':
+    case AUTH_SUCCESS:
+      console.log(payload);
+      return {
+        ...state,
+        user: {
+          email: payload.data.email,
+          uid: payload.data.uid,
+          token: payload.data.token,
+        },
+      };
+    case REMOVE_ITEM:
       return {
         ...state,
         [payload.itemType]: state[payload.itemType].filter(
           (item) => item.id !== payload.id,
         ),
       };
-    case 'ADD_ITEM':
+    case ADD_ITEM:
       return {
         ...state,
         [payload.itemType]: [...state[payload.itemType], payload.item],

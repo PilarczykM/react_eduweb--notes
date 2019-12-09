@@ -7,6 +7,7 @@ const routes = {
   twitter: '/twitters/:id',
   note: '/notes/:id',
   login: '/login',
+  register: '/register',
 };
 
 export default routes;

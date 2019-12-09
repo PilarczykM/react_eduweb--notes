@@ -9,7 +9,9 @@ const firebaseConfig = require('../utils/keys/config');
 firebase.initializeApp(firebaseConfig);
 
 exports.signup = (req, res) => {
-  const { email, password, confirmPassword, userName } = req.body;
+  const {
+ email, password, confirmPassword, userName 
+} = req.body;
 
   const newUser = {
     email,
@@ -68,10 +70,19 @@ exports.login = (req, res) => {
 
   if (!valid) return res.status(404).json(errors);
 
+  let loggedUser = {};
+
   firebase
     .auth()
     .signInWithEmailAndPassword(user.email, user.password)
-    .then((data) => data.user.getIdToken())
-    .then((token) => res.json({ token }))
+    .then((data) => {
+      loggedUser = {
+        uid: data.user.uid,
+        email: data.user.email,
+      };
+
+      return data.user.getIdToken();
+    })
+    .then((token) => res.json({ ...loggedUser, token }))
     .catch((err) => res.status(500).json({ error: err }));
 };
