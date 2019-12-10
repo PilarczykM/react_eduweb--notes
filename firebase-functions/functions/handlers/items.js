@@ -21,7 +21,7 @@ exports.getAllItems = (req, res) => {
 };
 
 exports.getallUserItemsOfType = (req, res) => {
-  const { cardType, userUID } = req.body;
+  const { cardType, userUID } = req.query;
 
   if (cardType === undefined || userUID === undefined) {
     return res.status(400).json({ cardType: 'Can not be undefined!' });

@@ -9,9 +9,7 @@ const firebaseConfig = require('../utils/keys/config');
 firebase.initializeApp(firebaseConfig);
 
 exports.signup = (req, res) => {
-  const {
- email, password, confirmPassword, userName 
-} = req.body;
+  const { email, password, confirmPassword, userName } = req.body;
 
   const newUser = {
     email,

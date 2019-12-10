@@ -3,9 +3,9 @@ const routes = {
   notes: '/notes',
   twitters: '/twitters',
   articles: '/articles',
-  article: '/articles/:id',
-  twitter: '/twitters/:id',
-  note: '/notes/:id',
+  article: '/articles/details/:id',
+  twitter: '/twitters/details/:id',
+  note: '/notes/details/:id',
   login: '/login',
   register: '/register',
 };
