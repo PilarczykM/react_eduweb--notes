@@ -20,10 +20,10 @@ exports.getAllItems = (req, res) => {
     .catch((err) => res.status(500).json({ error: err }));
 };
 
-exports.getAllItemsOfType = (req, res) => {
-  const { cardType } = req.body;
+exports.getallUserItemsOfType = (req, res) => {
+  const { cardType, userUID } = req.body;
 
-  if (cardType === undefined) {
+  if (cardType === undefined || userUID === undefined) {
     return res.status(400).json({ cardType: 'Can not be undefined!' });
   }
 
@@ -31,7 +31,12 @@ exports.getAllItemsOfType = (req, res) => {
     return res.status(400).json({ cardType: 'Can not be empty.' });
   }
 
+  if (userUID.trim() === '') {
+    return res.status(400).json({ cardType: 'Can not be empty.' });
+  }
+
   db.collection('items')
+    .where('userUID', '==', userUID)
     .where('cardType', '==', cardType)
     .get()
     .then((data) => {
@@ -44,9 +49,9 @@ exports.getAllItemsOfType = (req, res) => {
       );
 
       if (itemsOfType.length === 0) {
-        return res
-          .status(404)
-          .json({ message: `Items of type ${cardType} not found.` });
+        return res.status(404).json({
+          message: `Items of type ${cardType} where user id: ${userUID} not found.`,
+        });
       }
 
       return res.status(200).json(itemsOfType);
@@ -81,8 +86,20 @@ exports.deleteItem = (req, res) => {
 };
 
 exports.addItem = (req, res) => {
-  const { title, content, cardType } = req.body;
-  if (title === undefined || content === undefined || cardType === undefined) {
+  const {
+    title,
+    content,
+    cardType,
+    userUID,
+    twitterName,
+    articleUrl,
+  } = req.body;
+  if (
+    title === undefined ||
+    content === undefined ||
+    cardType === undefined ||
+    userUID === undefined
+  ) {
     return res.status(400).json({ body: 'Can not be undefined!' });
   }
 
@@ -94,6 +111,9 @@ exports.addItem = (req, res) => {
     cardType,
     title,
     content,
+    userUID,
+    twitterName: twitterName || '',
+    articleUrl: articleUrl || '',
     createdAt: new Date().toISOString(),
   };
 

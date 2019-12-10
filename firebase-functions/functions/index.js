@@ -7,7 +7,7 @@ const {
   deleteItem,
   getItem,
   getAllItems,
-  getAllItemsOfType,
+  getallUserItemsOfType,
 } = require('./handlers/items');
 
 const { login, signup } = require('./handlers/user');
@@ -16,7 +16,7 @@ app.use(cors());
 
 // * === Items routes === *
 // ========================
-app.get('/items/type/', getAllItemsOfType);
+app.get('/items/type', getallUserItemsOfType);
 app.get('/items/:itemId', getItem);
 app.delete('/items/:itemId', deleteItem);
 app.post('/items', addItem);
