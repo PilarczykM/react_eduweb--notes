@@ -1,7 +1,15 @@
 const axios = require('axios');
 
 const REMOVE_ITEM = 'REMOVE_ITEM';
+const REMOVE_ITEM_REQUEST = 'REMOVE_ITEM_REQUEST';
+const REMOVE_ITEM_SUCCESS = 'REMOVE_ITEM_SUCCESS';
+const REMOVE_ITEM_FAILURE = 'REMOVE_ITEM_FAILUER';
 const ADD_ITEM = 'ADD_ITEM';
+
+const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
+const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
+const ADD_ITEM_FAILURE = 'ADD_ITEM_FAILURE';
+
 const AUTH_SUCCESS = 'AUTH_SUCCESS';
 const AUTH_FAILURE = 'AUTH_FAILURE';
 const AUTH_REQUEST = 'AUTH_REQUEST';
@@ -13,30 +21,44 @@ const FETCH_REQUEST = 'FETCH_REQUEST';
 // const API_URL = 'https://europe-west2-mynotes-d9696.cloudfunctions.net/api';
 const API_URL = 'http://localhost:5000/mynotes-d9696/europe-west2/api';
 
-const removeItem = (itemType, id) => ({
-  type: REMOVE_ITEM,
-  payload: {
-    itemType,
-    id,
-  },
-});
+const removeItem = (pageContext, id) => (dispatch) => {
+  dispatch({
+    type: REMOVE_ITEM_REQUEST,
+  });
 
-const addItem = (itemType, itemContent) => {
-  const getId = () => `_${Math.random()
-      .toString(36)
-      .substr(2, 9)}`;
+  axios
+    .delete(`${API_URL}/items/${id}`)
+    .then(() => {
+      dispatch({
+        type: REMOVE_ITEM_SUCCESS,
+        payload: {
+          pageContext,
+          id,
+        },
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: REMOVE_ITEM_FAILURE });
+    });
+};
 
-  return {
-    type: ADD_ITEM,
-    payload: {
-      itemType,
-      item: {
-        id: getId(),
-        created: new Date().toISOString(),
-        ...itemContent,
-      },
-    },
-  };
+const addItem = (itemType, itemContent) => (dispatch, getState) => {
+  dispatch({ type: ADD_ITEM_REQUEST });
+
+  return axios.default
+    .post(`${API_URL}/items`, {
+      cardType: itemType,
+      userUID: getState().user.userUID,
+      ...itemContent,
+    })
+    .then(({ data }) => {
+      dispatch({ type: ADD_ITEM_SUCCESS, payload: { itemType, item: data } });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: ADD_ITEM_FAILURE });
+    });
 };
 
 const fetchItems = (cardType) => (dispatch, getState) => {
@@ -93,4 +115,8 @@ export {
   authenticate,
   fetchItems,
   removeItem,
+  REMOVE_ITEM_REQUEST,
+  REMOVE_ITEM_SUCCESS,
+  REMOVE_ITEM_FAILURE,
+  ADD_ITEM_SUCCESS,
 };

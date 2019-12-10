@@ -12,6 +12,8 @@ class Articles extends Component {
     this.props.fetchArticles();
   }
 
+  // TODO JEzeli lista jest pusta to nie renderowac...
+  // TODo Sprawdzic czemu wyskakuje error gdy brak elementow w liscie.
   render() {
     const { articles } = this.props;
     return (

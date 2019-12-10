@@ -1,4 +1,9 @@
-import { ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS, FETCH_SUCCESS } from '../actions';
+import {
+  ADD_ITEM_SUCCESS,
+  AUTH_SUCCESS,
+  FETCH_SUCCESS,
+  REMOVE_ITEM_SUCCESS,
+} from '../actions';
 
 const initialState = {
   user: {
@@ -22,18 +27,19 @@ const rootReducer = (state = initialState, { type, payload }) => {
           token: payload.data.token,
         },
       };
-    case REMOVE_ITEM:
+    case REMOVE_ITEM_SUCCESS:
       return {
         ...state,
-        [payload.itemType]: state[payload.itemType].filter(
+        [payload.pageContext]: state[payload.pageContext].filter(
           (item) => item.id !== payload.id,
         ),
       };
-    case ADD_ITEM:
+    case ADD_ITEM_SUCCESS:
       return {
         ...state,
         [payload.itemType]: [...state[payload.itemType], payload.item],
       };
+
     default:
       return state;
   }

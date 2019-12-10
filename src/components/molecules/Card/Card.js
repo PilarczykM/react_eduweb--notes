@@ -104,8 +104,8 @@ class Card extends Component {
       return <Redirect to={`${pageContext}/details/${id}`} />;
     }
     return (
-      <StyledWrapper onClick={this.handleCardClick}>
-        <InnerWrapper activeColor={pageContext}>
+      <StyledWrapper>
+        <InnerWrapper onClick={this.handleCardClick} activeColor={pageContext}>
           <StyledHeading>{title}</StyledHeading>
           <DateInfo>{created}</DateInfo>
           {pageContext === 'twitters' && (
@@ -115,7 +115,12 @@ class Card extends Component {
         </InnerWrapper>
         <InnerWrapper flex>
           <Paragraph>{content}</Paragraph>
-          <Button secondary onClick={() => removeItem(pageContext, id)}>
+          <Button
+            secondary
+            onClick={() => {
+              removeItem(pageContext, id);
+            }}
+          >
             REMOVE
           </Button>
         </InnerWrapper>
@@ -142,7 +147,7 @@ Card.defaultProps = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  removeItem: (itemType, id) => dispatch(removeItemAction(itemType, id)),
+  removeItem: (pageContext, id) => dispatch(removeItemAction(pageContext, id)),
 });
 
 export default connect(null, mapDispatchToProps)(withContext(Card));
