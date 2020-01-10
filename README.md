@@ -22,8 +22,8 @@ below.
 
 ## Install
 
-    $ git clone https://github.com/ORG/PROJECT.git
-    $ cd PROJECT
+    $ git clone https://github.com/PilarczykM/react_eduweb--notes.git favnotes
+    $ cd favnotes
     $ npm install
 
 ### Configure app
@@ -57,3 +57,7 @@ below.
 
 The app embed for development a static connect server with livereload plugged.
 So each time you start the app, you get automatic refresh in the browser whenever you update a file.
+
+### Back end server with firebase
+
+
