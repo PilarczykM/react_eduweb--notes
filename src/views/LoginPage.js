@@ -43,7 +43,7 @@ const LoginPage = ({ authenticate, user }) => (
       }}
     >
       {({ handleChange, handleBlur, values }) => {
-        if (user) {
+        if (Object.entries(user).length !== 0) {
           return <Redirect to={routes.home} />;
         }
         return (
@@ -83,7 +83,8 @@ const mapStateToProps = ({ user = null }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  authenticate: (email, password) => dispatch(authenticateAction(email, password)),
+  authenticate: (email, password) =>
+    dispatch(authenticateAction(email, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

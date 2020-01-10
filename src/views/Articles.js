@@ -17,7 +17,7 @@ class Articles extends Component {
   render() {
     const { articles } = this.props;
     return (
-      <GridTemplate pageType="articles">
+      <GridTemplate itemCount={articles.length} pageType="articles">
         {articles.map(
           ({ title, content, articleUrl, createdAt: created, id }) => (
             <Card

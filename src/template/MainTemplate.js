@@ -32,7 +32,6 @@ class MainTemplate extends Component {
     const [currentPage] = pageTypes.filter((pageType) =>
       pathname.includes(pageType),
     );
-
     if (prevState.pageType !== currentPage) {
       this.setState({ pageType: currentPage });
     }

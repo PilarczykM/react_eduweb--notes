@@ -18,8 +18,8 @@ const FETCH_SUCCESS = 'FETCH_SUCCESS';
 const FETCH_FAILURE = 'FETCH_FAILURE';
 const FETCH_REQUEST = 'FETCH_REQUEST';
 
-// const API_URL = 'https://europe-west2-mynotes-d9696.cloudfunctions.net/api';
-const API_URL = 'http://localhost:5000/mynotes-d9696/europe-west2/api';
+const API_URL = 'https://europe-west2-mynotes-d9696.cloudfunctions.net/api';
+// const API_URL = 'http://localhost:5000/mynotes-d9696/europe-west2/api';
 
 const removeItem = (pageContext, id) => (dispatch) => {
   dispatch({
@@ -38,7 +38,6 @@ const removeItem = (pageContext, id) => (dispatch) => {
       });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: REMOVE_ITEM_FAILURE });
     });
 };
@@ -56,7 +55,6 @@ const addItem = (itemType, itemContent) => (dispatch, getState) => {
       dispatch({ type: ADD_ITEM_SUCCESS, payload: { itemType, item: data } });
     })
     .catch((err) => {
-      console.log(err);
       dispatch({ type: ADD_ITEM_FAILURE });
     });
 };
@@ -79,8 +77,7 @@ const fetchItems = (cardType) => (dispatch, getState) => {
         },
       });
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(({ response }) => {
       dispatch({ type: FETCH_FAILURE });
     });
 };
@@ -97,7 +94,6 @@ const authenticate = (email, password) => (dispatch) => {
       dispatch({ type: AUTH_SUCCESS, payload: response });
     })
     .catch(({ response }) => {
-      // console.log(response.data, response.status);
       dispatch({ type: AUTH_FAILURE });
     });
 };

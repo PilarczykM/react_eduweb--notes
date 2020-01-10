@@ -70,12 +70,13 @@ class GridTemplate extends React.Component {
     };
   }
 
-  toggleNewItemBar = () => this.setState((prevState) => ({
+  toggleNewItemBar = () =>
+    this.setState((prevState) => ({
       isNewItemBarVisible: !prevState.isNewItemBarVisible,
     }));
 
   render() {
-    const { pageContext, children } = this.props;
+    const { itemCount, pageContext, children } = this.props;
     const { isNewItemBarVisible } = this.state;
 
     return (
@@ -86,7 +87,7 @@ class GridTemplate extends React.Component {
             <StyledHeading big as="h1">
               {pageContext}
             </StyledHeading>
-            <StyledParagraph>{`6 ${pageContext}`}</StyledParagraph>
+            <StyledParagraph>{`${itemCount} ${pageContext}`}</StyledParagraph>
           </StyledPageHeader>
           <StyledGrid>{children}</StyledGrid>
         </StyledWrapper>

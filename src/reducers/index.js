@@ -6,9 +6,7 @@ import {
 } from '../actions';
 
 const initialState = {
-  user: {
-    userUID: 'sBJP8PEm4MQNefRLAXsoOdxvi0O2',
-  },
+  user: {},
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -19,12 +17,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
         [payload.itemType]: payload.data,
       };
     case AUTH_SUCCESS:
+      const { email, token, uid } = payload.data;
       return {
         ...state,
         user: {
-          email: payload.data.email,
-          uid: payload.data.uid,
-          token: payload.data.token,
+          email,
+          userUID: uid,
+          token,
         },
       };
     case REMOVE_ITEM_SUCCESS:
