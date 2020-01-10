@@ -1,68 +1,59 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# PROJECT Fav Notes
+This project was made with eduweb course by [hello roman](https://www.youtube.com/channel/UCq8XmOMtrUCb8FcFHQEd8_g).
 
-In the project directory, you can run:
 
-### `npm start`
+## Requirements
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+For development, you will only need Node.js installed on your environement.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Node
 
-### `npm test`
+[Node](http://nodejs.org/) is really easy to install & now include [NPM](https://npmjs.org/).
+You should be able to run the following command after the installation procedure
+below.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    $ node --version
+    v0.10.24
 
-### `npm run build`
+    $ npm --version
+    1.3.21
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Install
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    $ git clone https://github.com/ORG/PROJECT.git
+    $ cd PROJECT
+    $ npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Configure app
 
-### `npm run eject`
+## Start & watch
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    $ npm start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Simple build for production
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    $ npm run build
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Languages & tools
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### HTML
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### JavaScript
 
-### Code Splitting
+- [Eslint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+- [Husky](https://github.com/typicode/husky) can prevent bad git commit, git push and more 🐶 woof!
+- [lint-staged](https://github.com/okonet/lint-staged) by doing so you can ensure no errors go into the repository and enforce code style.
+- [React](http://facebook.github.io/react) is used for UI.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### CSS
 
-### Analyzing the Bundle Size
+- [Styled-components](https://www.styled-components.com/) is the result of wondering how we could enhance CSS for styling React component systems.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Client server with Livereload
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The app embed for development a static connect server with livereload plugged.
+So each time you start the app, you get automatic refresh in the browser whenever you update a file.
