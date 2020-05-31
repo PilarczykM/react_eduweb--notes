@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from '../theme/GlobalStyle';
-import { theme } from '../theme/mainTheme';
 import PageContext from '../context';
+import { GlobalStyle } from '../theme/GlobalStyle';
+import { theme } from '../theme/mainTheme';
 
 class MainTemplate extends Component {
   constructor(props) {

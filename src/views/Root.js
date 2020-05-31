@@ -1,23 +1,20 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import {
-  Route,
-  Switch,
   BrowserRouter as Router,
   Redirect,
+  Route,
+  Switch,
 } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import routes from '../routes/index';
 import store from '../store/index';
-
 import MainTemplate from '../template/MainTemplate';
-
 import Articles from './Articles';
 import DetailsPage from './DetailsPage';
-import Notes from './Notes';
 import LoginPage from './LoginPage';
+import Notes from './Notes';
 import RegisterPage from './RegisterPage';
 import Twitters from './Twitters';
-
-import routes from '../routes/index';
 
 const Root = () => (
   <Provider store={store}>
