@@ -1,5 +1,5 @@
 export interface Props {
-  secondary: boolean;
   color: string;
+  secondary?: boolean;
   theme: any;
 }
