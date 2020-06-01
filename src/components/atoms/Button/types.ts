@@ -3,4 +3,5 @@ export interface Props {
   secondary?: boolean;
   theme: any;
   className?: string;
+  onClick?: Function;
 }

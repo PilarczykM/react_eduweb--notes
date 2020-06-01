@@ -18,6 +18,10 @@ export const Button = styled.button<Props>`
   font-size: 16px;
   text-transform: uppercase;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   ${({ secondary }: Props) =>
     secondary &&
     css`
