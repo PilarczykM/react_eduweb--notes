@@ -1,14 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-import UserPageTemplate from './UserPageTemplate';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { Button } from '../components/atoms/Button/Button';
+import { Heading } from '../components/atoms/Heading/Heading';
+import { Paragraph } from '../components/atoms/Paragraph/Paragraph';
 import withContext from '../hoc/withContext';
-
-import Heading from '../components/atoms/Heading/Heading';
-import Paragraph from '../components/atoms/Paragraph/Paragraph';
-import Button from '../components/atoms/Button/Button';
+import UserPageTemplate from './UserPageTemplate';
 
 const StyledWrapper = styled.div`
   padding: 0 150px 25px 200px;

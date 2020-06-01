@@ -1,17 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
-
+import plusIcon from '../assets/icons/plus.svg';
+import { ButtonIcon } from '../components/atoms/ButtonIcon/ButtonIcon';
+import { Heading } from '../components/atoms/Heading/Heading';
+import { Input } from '../components/atoms/Input/Input';
+import { Paragraph } from '../components/atoms/Paragraph/Paragraph';
+import NewItemBar from '../components/organisms/NewItemBar/NewItemBar';
 import withContext from '../hoc/withContext';
 import UserPageTemplate from './UserPageTemplate';
-
-import ButtonIcon from '../components/atoms/ButtonIcon/ButtonIcon';
-import Input from '../components/atoms/Input/Input';
-import Heading from '../components/atoms/Heading/Heading';
-import Paragraph from '../components/atoms/Paragraph/Paragraph';
-
-import plusIcon from '../assets/icons/plus.svg';
-import NewItemBar from '../components/organisms/NewItemBar/NewItemBar';
 
 const StyledWrapper = styled.div`
   padding: 0 150px 50px 200px;

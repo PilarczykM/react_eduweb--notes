@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Props } from './types';
 
-const Button = styled.button`
+export const Button = styled.button<Props>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,5 +27,3 @@ const Button = styled.button`
       font-size: 10px;
     `}
 `;
-
-export default Button;
