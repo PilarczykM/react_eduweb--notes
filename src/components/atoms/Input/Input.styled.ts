@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import magnifireIcon from '../../../assets/icons/magnifier.svg';
 import { Props } from './types';
 
-const Input = styled.input`
+export const Input = styled.input`
   padding: 15px 30px;
   font-size: ${({ theme }: Props) => theme.fontSize.s};
   font-weight: ${({ theme }) => theme.regular};
@@ -28,4 +28,3 @@ const Input = styled.input`
       background-position: 15px 50%;
     `}
 `;
-export default Input;

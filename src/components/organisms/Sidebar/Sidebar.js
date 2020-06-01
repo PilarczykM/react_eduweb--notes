@@ -1,17 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import withContext from '../../../hoc/withContext';
-
-import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
-
-import logoIcon from '../../../assets/icons/logo.svg';
+import styled from 'styled-components';
 import bulbIcon from '../../../assets/icons/bulb.svg';
+import logoIcon from '../../../assets/icons/logo.svg';
+import logoutIcon from '../../../assets/icons/logout.svg';
 import penIcon from '../../../assets/icons/pen.svg';
 import twitterIcon from '../../../assets/icons/twitter.svg';
-import logoutIcon from '../../../assets/icons/logout.svg';
+import withContext from '../../../hoc/withContext';
+import { ButtonIcon } from '../../atoms/ButtonIcon/ButtonIcon';
 
 const StyledWrapper = styled.nav`
   position: fixed;
@@ -20,7 +17,8 @@ const StyledWrapper = styled.nav`
   padding: 25px 0;
   width: 150px;
   height: 100vh;
-  background-color: ${({ activeColor, theme }) => (activeColor ? theme[activeColor] : theme.note)};
+  background-color: ${({ activeColor, theme }) =>
+    activeColor ? theme[activeColor] : theme.note};
   display: flex;
   flex-direction: column;
   justify-content: space-between;

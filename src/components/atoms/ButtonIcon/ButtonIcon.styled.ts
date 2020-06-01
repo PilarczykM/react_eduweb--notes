@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Props } from './types';
 
-const ButtonIcon = styled.button`
+export const ButtonIcon = styled.button<Props>`
   display: block;
   width: 67px;
   height: 67px;
@@ -16,5 +16,3 @@ const ButtonIcon = styled.button`
     background-color: white;
   }
 `;
-
-export default ButtonIcon;

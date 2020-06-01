@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import withContext from '../../../hoc/withContext';
+import { Redirect } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 import { removeItem as removeItemAction } from '../../../actions';
-
-import Heading from '../../atoms/Heading/Heading';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
-import Button from '../../atoms/Button/Button';
-
 import LinkIcon from '../../../assets/icons/link.svg';
+import withContext from '../../../hoc/withContext';
+import { Button } from '../../atoms/Button/Button';
+import { Heading } from '../../atoms/Heading/Heading';
+import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 
 const StyledWrapper = styled.div`
   min-height: 380px;
