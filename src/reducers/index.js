@@ -7,6 +7,14 @@ import {
 
 const initialState = {
   user: {},
+  notes: [
+    {
+      title: 'My title',
+      content: 'My content',
+      createdAt: 'lol',
+      id: '123',
+    },
+  ],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
