@@ -1,5 +1,4 @@
 export interface Props {
-  big?: boolean;
-  className?: string;
+  big: boolean;
   theme: any;
 }

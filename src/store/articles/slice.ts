@@ -7,9 +7,10 @@ export const articlesSlice = createSlice({
   name: 'Articles',
   initialState: initialArticleState,
   reducers: {
-    add: (state: Article[], { payload }: PayloadAction<Article>) => {
-      return [...state, payload];
-    },
+    add: (state: Article[], { payload }: PayloadAction<Article>) => [
+      ...state,
+      payload,
+    ],
     edit: (
       state: Article[],
       {

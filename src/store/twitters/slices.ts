@@ -7,9 +7,10 @@ export const twittersSlice = createSlice({
   name: 'Articles',
   initialState: initialArticleState,
   reducers: {
-    add: (state: Twitter[], { payload }: PayloadAction<Twitter>) => {
-      return [...state, payload];
-    },
+    add: (state: Twitter[], { payload }: PayloadAction<Twitter>) => [
+      ...state,
+      payload,
+    ],
     edit: (
       state: Twitter[],
       {

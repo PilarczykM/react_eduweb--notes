@@ -1,7 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Note } from './types';
 
-const notesInitialState: Note[] = [];
+const notesInitialState: Note[] = [
+  {
+    id: '1',
+    content: 'This is my note',
+    title: 'My note',
+    createdAt: '22-01-1993',
+  },
+];
 
 export const notesSlice = createSlice({
   name: 'Notes',
