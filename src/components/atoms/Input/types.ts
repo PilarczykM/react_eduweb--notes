@@ -1,6 +1,5 @@
 export interface Props {
-  className?: string;
   borderColor: string;
-  search?: boolean;
+  search: boolean;
   theme: any;
 }
