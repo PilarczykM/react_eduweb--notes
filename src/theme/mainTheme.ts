@@ -1,3 +1,11 @@
+export type colors =
+  | 'notes'
+  | 'twitters'
+  | 'articles'
+  | 'grey100'
+  | 'grey300'
+  | 'black';
+
 export const theme = {
   notes: 'hsl(49,100%, 58%)',
   twitters: 'hsl(196,83%,75%)',
@@ -6,6 +14,7 @@ export const theme = {
   grey300: 'hsl(0,0%,90%)',
   black: 'hsl(0,0%,0%)',
   light: 300,
+  regular: 400,
   bold: 600,
   fontSize: {
     xxs: '1rem',

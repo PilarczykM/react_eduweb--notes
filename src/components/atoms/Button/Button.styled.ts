@@ -1,14 +1,15 @@
 import styled, { css } from 'styled-components';
-import { Props } from './types';
+import { theme } from '../../../theme/mainTheme';
+import { ButtonProps } from './types';
 
-export const Button = styled.button<Props>`
+export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
   color: black;
   text-decoration: none;
   padding: 0;
-  background-color: ${({ theme, color }: Props) => theme[color]};
+  background-color: ${({ color }: ButtonProps) => theme[color]};
   width: 220px;
   height: 47px;
   border: none;
@@ -18,7 +19,7 @@ export const Button = styled.button<Props>`
   font-size: 16px;
   text-transform: uppercase;
 
-  ${({ secondary }: Props) =>
+  ${({ secondary }: ButtonProps) =>
     secondary &&
     css`
       background-color: hsl(0, 0%, 90%);
