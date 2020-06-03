@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { fetchItems } from '../actions';
-
-import GridTemplate from '../template/GridViewTemplate';
 import Card from '../components/molecules/Card/Card';
+import GridTemplate from '../template/GridView/GridView';
 
 class Notes extends Component {
   componentDidMount() {
