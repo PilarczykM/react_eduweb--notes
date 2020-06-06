@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import axios from 'axios';
-import DetailsTemplate from '../template/DetailsTemplate';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import withContext from '../hoc/withContext';
+import { DetailsTemplate } from '../template/Details';
 
 class DetailsPage extends Component {
   // eslint-disable-next-line react/state-in-constructor

@@ -5,5 +5,5 @@ export interface HeagindProps
     HtmlHTMLAttributes<HTMLHeadElement>,
     HTMLHeadElement
   > {
-  big: boolean;
+  big?: boolean;
 }

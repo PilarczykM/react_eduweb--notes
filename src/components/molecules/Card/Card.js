@@ -6,9 +6,9 @@ import styled, { css } from 'styled-components';
 import { removeItem as removeItemAction } from '../../../actions';
 import LinkIcon from '../../../assets/icons/link.svg';
 import withContext from '../../../hoc/withContext';
-import { Button } from '../../atoms/Button/Button';
-import { Heading } from '../../atoms/Heading/Heading';
-import { Paragraph } from '../../atoms/Paragraph/Paragraph';
+import { Button } from '../../atoms/Button';
+import { Heading } from '../../atoms/Heading';
+import { Paragraph } from '../../atoms/Paragraph';
 
 const StyledWrapper = styled.div`
   min-height: 380px;

@@ -8,6 +8,36 @@ const notesInitialState: Note[] = [
     title: 'My note',
     createdAt: '22-01-1993',
   },
+  {
+    id: '2',
+    content: 'This is my note',
+    title: 'My note',
+    createdAt: '22-01-1993',
+  },
+  {
+    id: '3',
+    content: 'This is my note',
+    title: 'My note',
+    createdAt: '22-01-1993',
+  },
+  {
+    id: '4',
+    content: 'This is my note',
+    title: 'My note',
+    createdAt: '22-01-1993',
+  },
+  {
+    id: '6',
+    content: 'This is my note',
+    title: 'My note',
+    createdAt: '22-01-1993',
+  },
+  {
+    id: '7',
+    content: 'This is my note',
+    title: 'My note',
+    createdAt: '22-01-1993',
+  },
 ];
 
 export const notesSlice = createSlice({

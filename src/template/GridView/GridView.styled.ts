@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { ButtonIcon } from '../../components/atoms/ButtonIcon/ButtonIcon';
+import { ButtonIcon } from '../../components/atoms/ButtonIcon';
 import { ButtonIconProps } from '../../components/atoms/ButtonIcon/types';
-import { Heading } from '../../components/atoms/Heading/Heading';
-import { Paragraph } from '../../components/atoms/Paragraph/Paragraph';
+import { Heading } from '../../components/atoms/Heading';
+import { Paragraph } from '../../components/atoms/Paragraph';
 import { colors, theme } from '../../theme/mainTheme';
 
 export const Wrapper = styled.div`
