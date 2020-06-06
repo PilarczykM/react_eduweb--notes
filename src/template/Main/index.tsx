@@ -5,7 +5,7 @@ import { PageContext, pageTypes } from '../../context/pageContext';
 import { GlobalStyle } from '../../theme/GlobalStyle';
 import { theme } from '../../theme/mainTheme';
 
-const MainTemplate: React.FC = ({ children }) => {
+export const MainTemplate: React.FC = ({ children }) => {
   const [pageType, setPageType] = useState<pageTypes>('notes');
   const { pathname } = useLocation();
 
@@ -31,5 +31,3 @@ const MainTemplate: React.FC = ({ children }) => {
     </PageContext.Provider>
   );
 };
-
-export default MainTemplate;

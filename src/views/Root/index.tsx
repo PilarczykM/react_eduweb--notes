@@ -1,21 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import { routes } from '../../routes';
 import { store } from '../../store';
-import MainTemplate from '../../template/Main';
+import { MainTemplate } from '../../template/Main';
 import { Articles } from '../Articles';
 import { DetailsPage } from '../Details/';
-import LoginPage from '../LoginPage';
+import { LoginPage } from '../Login/';
 import { Notes } from '../Notes';
-import RegisterPage from '../RegisterPage';
+import { RegisterPage } from '../Register/';
 import { Twitters } from '../Twitters';
 
-export const Root:React.FC = () => (
+export const Root: React.FC = () => (
   <Provider store={store}>
     <Router>
       <MainTemplate>
-      <Switch>
+        <Switch>
           <Route
             exact
             path={routes.home}
