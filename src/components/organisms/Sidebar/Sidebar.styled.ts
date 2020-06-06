@@ -23,14 +23,14 @@ export const Wrapper = styled.nav<WrapperProps>`
 `;
 
 interface LogoLinkProps {
-  logoIcon: string;
+  logoicon: string;
 }
 
 export const LogoLink = styled(NavLink)<LogoLinkProps>`
   display: block;
   width: 67px;
   height: 67px;
-  background-image: url(${({ logoIcon }: LogoLinkProps) => logoIcon});
+  background-image: url(${({ logoicon }: LogoLinkProps) => logoicon});
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 80%;
@@ -39,18 +39,17 @@ export const LogoLink = styled(NavLink)<LogoLinkProps>`
 `;
 
 interface ButtonIconProps {
-  logoIcon: string;
+  logoicon: string;
   activeclass?: string;
 }
 
 export const NavButton = styled(NavLink)<ButtonIconProps>`
   margin-top: auto;
-
   display: block;
   width: 67px;
   height: 67px;
   border-radius: 20px;
-  background-image: url(${({ logoIcon }: ButtonIconProps) => logoIcon});
+  background-image: url(${({ logoicon }: ButtonIconProps) => logoicon});
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: 50% 50%;

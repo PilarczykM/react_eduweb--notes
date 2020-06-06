@@ -5,5 +5,5 @@ import { InputProps } from './types';
 export const Input: React.FC<InputProps> = (props) => {
   const { ref, ...otherProps } = props;
 
-  return <StyledInput {...otherProps}>{otherProps.children}</StyledInput>;
+  return <StyledInput {...otherProps} />;
 };

@@ -1,9 +1,9 @@
-import { DetailedHTMLProps, HtmlHTMLAttributes } from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { colors } from '../../../theme/mainTheme';
 
 export interface InputProps
   extends DetailedHTMLProps<
-    HtmlHTMLAttributes<HTMLInputElement>,
+    InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
   borderColor?: colors;
