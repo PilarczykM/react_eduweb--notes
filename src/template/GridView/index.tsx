@@ -8,7 +8,7 @@ import { Props } from './types';
 
 const plusIcon = require('../../assets/icons/plus.svg');
 
-const GridTemplate: React.FC<Props> = ({ itemCount, children }: Props) => {
+const GridTemplate: React.FC<Props> = ({ itemCount, children }) => {
   const [isNewItemBarVisible, setIsNewItemBarVisible] = useState(false);
   const pageContext = usePageContext();
   const toggleNewItemBar = (

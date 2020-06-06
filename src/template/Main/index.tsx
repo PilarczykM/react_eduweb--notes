@@ -1,15 +1,11 @@
-import React, { ReactChildren, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { PageContext, pageTypes } from '../../context/pageContext';
 import { GlobalStyle } from '../../theme/GlobalStyle';
 import { theme } from '../../theme/mainTheme';
 
-interface Props {
-  children: ReactChildren;
-}
-
-const MainTemplate: React.FC<Props> = ({ children }) => {
+const MainTemplate: React.FC = ({ children }) => {
   const [pageType, setPageType] = useState<pageTypes>('notes');
   const { pathname } = useLocation();
 
