@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from '../../components/atoms/Button';
-import { Heading } from '../../components/atoms/Heading';
 import { routes } from '../../routes';
 import { AuthTemplate } from '../../template/Auth';
 import * as S from './RegisterPage.styled';
@@ -26,7 +25,7 @@ export const RegisterPage: React.FC = () => {
   return (
     <AuthTemplate>
       <S.Form>
-        <Heading>Sign up</Heading>
+        <S.StyledHeading>Sign up</S.StyledHeading>
         <S.StyledInput
           type="text"
           name="email"

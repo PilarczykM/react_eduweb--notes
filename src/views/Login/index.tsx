@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from '../../components/atoms/Button';
-import { Heading } from '../../components/atoms/Heading';
 import { routes } from '../../routes';
 import { State } from '../../store/types';
 import { AuthTemplate } from '../../template/Auth';
@@ -29,7 +28,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <AuthTemplate>
-      <Heading>Sign in</Heading>
+      <S.StyledHeading>Sign in</S.StyledHeading>
       <S.Form>
         <S.StyledInput
           type="email"
