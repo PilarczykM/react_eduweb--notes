@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from '../../components/atoms/Input';
-import NewItemBar from '../../components/organisms/NewItemBar/NewItemBar';
+import { NewItemBar } from '../../components/organisms/NewItemBar';
 import { usePageContext } from '../../context/pageContext';
 import { UserPageTemplate } from '../UserPage';
 import * as S from './GridView.styled';
@@ -35,7 +35,7 @@ const GridTemplate: React.FC<Props> = ({ itemCount, children }) => {
         onClick={(e) => toggleNewItemBar(e)}
       />
       <NewItemBar
-        handleClode={() => toggleNewItemBar}
+        handleClose={toggleNewItemBar}
         isVisible={isNewItemBarVisible}
       />
     </UserPageTemplate>
