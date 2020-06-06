@@ -1,26 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
-import routes from '../routes/index';
-import { store } from '../store/store';
-import MainTemplate from '../template/Main';
-import Articles from './Articles';
-import DetailsPage from './DetailsPage';
-import LoginPage from './LoginPage';
-import Notes from './Notes';
-import RegisterPage from './RegisterPage';
-import Twitters from './Twitters';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { routes } from '../../routes';
+import { store } from '../../store';
+import MainTemplate from '../../template/Main';
+import { Articles } from '../Articles';
+import { DetailsPage } from '../Details/';
+import LoginPage from '../LoginPage';
+import { Notes } from '../Notes';
+import RegisterPage from '../RegisterPage';
+import { Twitters } from '../Twitters';
 
-const Root = () => (
+export const Root:React.FC = () => (
   <Provider store={store}>
     <Router>
       <MainTemplate>
-        <Switch>
+      <Switch>
           <Route
             exact
             path={routes.home}
@@ -39,5 +34,3 @@ const Root = () => (
     </Router>
   </Provider>
 );
-
-export default Root;

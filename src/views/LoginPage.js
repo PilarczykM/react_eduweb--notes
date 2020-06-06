@@ -7,7 +7,7 @@ import { authenticate as authenticateAction } from '../actions';
 import { Button } from '../components/atoms/Button';
 import { Heading } from '../components/atoms/Heading';
 import { Input } from '../components/atoms/Input';
-import routes from '../routes';
+import { routes } from '../routes';
 import { AuthTemplate } from '../template/Auth';
 
 const StyledForm = styled(Form)`

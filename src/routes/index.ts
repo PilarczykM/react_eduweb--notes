@@ -1,4 +1,4 @@
-const routes = {
+export const routes = {
   home: '/',
   notes: '/notes',
   twitters: '/twitters',
@@ -10,4 +10,3 @@ const routes = {
   register: '/register',
 };
 
-export default routes;
