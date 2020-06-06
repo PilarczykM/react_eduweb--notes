@@ -85,5 +85,4 @@ yarn-error.log*
 
 
 #mine
-firebase-functions/functions/utils/keys/config.js
-firebase-functions/functions/utils/keys/mynotes-d9696-firebase-adminsdk-av1iu-fde4d76586.json
+firebase-functions/functions/utils/keys
