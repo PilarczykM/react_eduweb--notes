@@ -12,6 +12,10 @@ export const StyledButtonIcon = styled.button<ButtonIconProps>`
   background-size: 50% 50%;
   border: none;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   &.active {
     background-color: white;
   }

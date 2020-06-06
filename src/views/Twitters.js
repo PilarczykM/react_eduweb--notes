@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import GridTemplate from '../template/GridViewTemplate';
-import Card from '../components/molecules/Card/Card';
-
 import { fetchItems } from '../actions';
+import Card from '../components/molecules/Card/Card';
+import GridTemplate from '../template/GridView';
 
 class Twitters extends Component {
   componentDidMount() {

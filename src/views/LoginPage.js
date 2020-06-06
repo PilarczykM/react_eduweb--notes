@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import { authenticate as authenticateAction } from '../actions';
-import { Button } from '../components/atoms/Button/Button';
-import { Heading } from '../components/atoms/Heading/Heading';
-import { Input } from '../components/atoms/Input/Input';
+import { Button } from '../components/atoms/Button';
+import { Heading } from '../components/atoms/Heading';
+import { Input } from '../components/atoms/Input';
 import routes from '../routes';
-import AuthTemplate from '../template/AuthTemplate';
+import { AuthTemplate } from '../template/Auth';
 
 const StyledForm = styled(Form)`
   display: flex;

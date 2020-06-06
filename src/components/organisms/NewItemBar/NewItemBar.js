@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { addItem as addItemAction } from '../../../actions';
 import withContext from '../../../hoc/withContext';
-import { Button } from '../../atoms/Button/Button';
-import { Heading } from '../../atoms/Heading/Heading';
-import { Input } from '../../atoms/Input/Input';
+import { Button } from '../../atoms/Button';
+import { Heading } from '../../atoms/Heading';
+import { Input } from '../../atoms/Input';
 
 const StyledWrapper = styled.div`
   position: fixed;

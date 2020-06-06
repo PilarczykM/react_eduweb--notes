@@ -8,7 +8,7 @@ import {
 } from 'react-router-dom';
 import routes from '../routes/index';
 import { store } from '../store/store';
-import MainTemplate from '../template/MainTemplate';
+import MainTemplate from '../template/Main';
 import Articles from './Articles';
 import DetailsPage from './DetailsPage';
 import LoginPage from './LoginPage';

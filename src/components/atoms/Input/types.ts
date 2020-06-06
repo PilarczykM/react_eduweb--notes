@@ -6,6 +6,6 @@ export interface InputProps
     HtmlHTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
-  borderColor: colors;
-  search: boolean;
+  borderColor?: colors;
+  search?: boolean;
 }
