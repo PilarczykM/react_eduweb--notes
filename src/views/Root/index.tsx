@@ -13,7 +13,7 @@ import { Articles } from '../Articles';
 import { DetailsPage } from '../Details/';
 import { LoginPage } from '../Login/';
 import { Notes } from '../Notes';
-import RegisterPage from '../RegisterPage';
+import { RegisterPage } from '../Register/';
 import { Twitters } from '../Twitters';
 
 export const Root: React.FC = () => (

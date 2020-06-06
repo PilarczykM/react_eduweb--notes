@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { Button } from '../../components/atoms/Button';
 import { Heading } from '../../components/atoms/Heading';
 import { routes } from '../../routes';
-import { State } from '../../store/types';
 import { AuthTemplate } from '../../template/Auth';
-import * as S from './LoginPage.styled';
+import * as S from './RegisterPage.styled';
 import { inputValuesProps } from './types';
 
-export const LoginPage: React.FC = () => {
+export const RegisterPage: React.FC = () => {
   // TODO: Podpiac redux thunk jak tylko backend zadziala.
-
   const [inputValues, setInputValues] = useState<inputValuesProps>({
     email: '',
     password: '',
+    confirmPassword: '',
+    userName: '',
   });
-
-  const user = useSelector((state: State) => state.user);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-
     setInputValues((prevState) => ({
       ...prevState,
       [name]: value,
@@ -29,26 +25,40 @@ export const LoginPage: React.FC = () => {
 
   return (
     <AuthTemplate>
-      <Heading>Sign in</Heading>
       <S.Form>
+        <Heading>Sign up</Heading>
         <S.StyledInput
-          type="email"
+          type="text"
           name="email"
           placeholder="Email"
-          value={inputValues.email}
           onChange={handleChange}
+          value={inputValues.email}
         />
         <S.StyledInput
           type="password"
           name="password"
           placeholder="Password"
-          value={inputValues.password}
           onChange={handleChange}
+          value={inputValues.password}
         />
-        <Button color="notes" onClick={() => {}}>
-          Sign in
+        <S.StyledInput
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm password"
+          onChange={handleChange}
+          value={inputValues.confirmPassword}
+        />
+        <S.StyledInput
+          type="text"
+          name="userName"
+          placeholder="User name"
+          onChange={handleChange}
+          value={inputValues.userName}
+        />
+        <Button color="notes" type="submit">
+          register
         </Button>
-        <S.StyledLink to={routes.register}>I want my account!</S.StyledLink>
+        <S.StyledLink to={routes.login}>I want to log in!</S.StyledLink>
       </S.Form>
     </AuthTemplate>
   );
